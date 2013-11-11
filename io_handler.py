@@ -25,15 +25,16 @@ class IOHandler(object):
         if args[0] == '\033':
             self.game.windowManager.destroyWindow()
             sys.exit()
-            self.game.player.intendRot += 1
+        if args[0] == 'n':
+            self.game.renderer.incrementMap()
+        if args[0] == 'p':
+            self.game.renderer.decrementMap()
         if args[0] == 'a':
-            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+            self.game.renderer.toDraw["axes"] = 1-self.game.renderer.toDraw["axes"]
         if args[0] == 's':
-            self.game.renderer.drawBackground()
-        if args[0] == 'd':
-            self.game.renderer.drawAxes()
-        if args[0] == 'f':
-            glutSwapBuffers()
+            self.game.renderer.toDraw["shapes"] = 1-self.game.renderer.toDraw["shapes"]
+        if args[0] == 'g':
+            self.game.renderer.toDraw["graph"] = 1-self.game.renderer.toDraw["graph"]
 
     def keyboardUpPress(self, *args):
         if args[0] == '\033':

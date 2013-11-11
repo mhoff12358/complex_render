@@ -27,8 +27,8 @@ class Game(object):
     def bootstrapGL(self):
         glClearColor(0.392, 0.584, 0.929, 0.0)
         glClearDepth(1.0)
-        glDepthFunc(GL_LESS)
-        glEnable(GL_DEPTH_TEST)
+        glDepthFunc(GL_NEVER)
+        # glEnable(GL_DEPTH_TEST)
         glShadeModel(GL_SMOOTH)
 
 if __name__ == "__main__":
