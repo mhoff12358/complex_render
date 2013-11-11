@@ -29,6 +29,10 @@ class IOHandler(object):
             self.game.renderer.incrementMap()
         if args[0] == 'p':
             self.game.renderer.decrementMap()
+        if args[0] == ']':
+            self.game.renderer.incrementShapes()
+        if args[0] == '[':
+            self.game.renderer.decrementShapes()
         if args[0] == 'a':
             self.game.renderer.toDraw["axes"] = 1-self.game.renderer.toDraw["axes"]
         if args[0] == 's':
